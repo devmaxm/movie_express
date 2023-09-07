@@ -112,6 +112,13 @@ const refreshToken = catchAsync(async (req, res, next) => {
     return res.status(200).json(await generateUserResponseAndRefreshTokens(user))
 })
 
+const logout = catchAsync(async (req, res, next) => {
+    const user = User.findOne({where: {id: req.user.id}})
+    user.refreshToken = null
+    res.clearCookie('jwtAccess')
+    res.clearCookie('jwtRefresh')
+    res.redirect('/')
+})
 
 module.exports = {
     register,
@@ -119,5 +126,6 @@ module.exports = {
     currentUser,
     refreshToken,
     generateUserResponseAndRefreshTokens,
-    setAuthCookies
+    setAuthCookies,
+    logout
 }

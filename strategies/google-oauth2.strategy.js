@@ -10,7 +10,6 @@ passport.use(new GoogleStrategy({
         passReqToCallback: true,
     },
     async function (request, accessToken, refreshToken, profile, cb) {
-        // console.log(1)
         const user = await User.findOne({
                 where: {
                     googleId: profile.id
@@ -32,7 +31,6 @@ passport.use(new GoogleStrategy({
 ));
 
 passport.serializeUser(function (user, done) {
-
     done(null, user);
 });
 

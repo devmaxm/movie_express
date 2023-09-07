@@ -5,6 +5,7 @@ const productionCompaniesRouter = require('./productionCompaniesRouter')
 const movieRouter = require('./movieRouter')
 const reviewRouter = require('./reviewRouter')
 
+
 const routes = Router()
 
 routes.use('/auth', authRouter)

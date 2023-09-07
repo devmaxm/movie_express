@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000
 async function bootstrap() {
     try {
         await sequelize.authenticate()
-        await sequelize.sync()
+        // await sequelize.sync()
         app.listen(PORT, () => {
             console.log(`Server start on port ${PORT}`)
         })
